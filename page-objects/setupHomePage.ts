@@ -1,4 +1,4 @@
-import { Locator, Page, expect } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import { BaseComponent } from './basePage';
 import { AppConstants } from '../constants/appConstants';
 import { NavBarComponent } from './ui-components/navBarComponent';

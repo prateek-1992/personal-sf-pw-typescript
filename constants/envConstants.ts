@@ -1,4 +1,4 @@
-export enum Environment{
-    STAGE = "stage",
-    BETA = "beta"
+export enum Environment {
+  STAGE = 'stage',
+  BETA = 'beta',
 }

@@ -1,2 +1,12 @@
 playwright-report
 playwright.config.ts
+*.cjs
+node_modules
+.github/*
+.auth/*
+test-data
+test-results
+.gitignore
+.prettierrc
+package.json
+package-lock.json

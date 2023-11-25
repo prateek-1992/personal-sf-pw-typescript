@@ -70,7 +70,7 @@ export interface IComponentActions {
    * const selector: string =  your selector
    * const isSelectorVisible: boolean = await elementInteractor.isLocatorVisible(selector);
    */
-  isLocatorVisible(locateUsing: Locator | string);
+  isLocatorVisible(locateUsing: Locator | string): Promise<void>;
 
   /**
    * Constructs a Playwright Locator based on the given string selector.

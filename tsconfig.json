@@ -2,7 +2,7 @@
     "compilerOptions": {
       "target": "es6",
       "module": "commonjs",
-      "strict": true,
+      "strict": false,
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
@@ -12,6 +12,6 @@
         "*": ["node_modules/*"]
       }
     },
-    "include": ["tests/**/*.ts"],
+    "include": ["tests/**/*.ts","reporters/*.ts"],
     "exclude": ["node_modules", "dist"]
   }
