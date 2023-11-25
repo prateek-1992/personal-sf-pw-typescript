@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:demo":"npx playwright test --grep=@Demo"
+    "test:demo":"npx playwright test --grep=@Demo",
+    "test:whole":"npx playwright test"
   },
   "keywords": [],
   "author": "",

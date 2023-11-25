@@ -6,13 +6,18 @@ on:
       environment:
         description: 'Environment to run suite on'
         required: true
+        default: 'qa'
       priority:
         description: 'Priority level'
         required: true
+        default: '@P0'
 jobs:
   test:
     timeout-minutes: 60 # this tells the maximum time allowed for a job to take and get completed
     runs-on: ubuntu-latest # this defines which machine to use on github
+    env:
+      ENVIRONMENT: ${{ github.event.inputs.environment }}
+      PRIORITY: ${{ github.event.inputs.priority }}
     steps: # add the steps
       - uses: actions/checkout@v3 # it defines a unit of code which we are using to pull code from repo
       - uses: actions/setup-node@v3 # this set up the node on the machine
@@ -23,7 +28,12 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          if [ "${PRIORITY}" = "@P0" ]; then
+            npm run test:demo
+          else
+            npm run test:whole
+          fi
       - uses: actions/upload-artifact@v3
         if: always()
         with:
