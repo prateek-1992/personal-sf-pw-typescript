@@ -12,7 +12,6 @@ on:
         required: true
         default: '@P0'
 jobs:
-  name: Playwright Test Executor
   test:
     timeout-minutes: 60 # this tells the maximum time allowed for a job to take and get completed
     runs-on: ubuntu-latest # this defines which machine to use on github
