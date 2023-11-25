@@ -50,5 +50,7 @@ export default class CustomReporter implements Reporter {
     //here you can run the function you want to do at end
     console.log(`Total slow test cases are ${this.testCaseSummary.slow}`);
     console.log(process.env['base_url']);
+    console.log(process.env['PRIORITY']);
+    console.log(process.env['base_url']);
   }
 }
