@@ -1,0 +1,24 @@
+{
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 100,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "overrides": [
+      {
+        "files": "*.json",
+        "options": {
+          "printWidth": 120
+        }
+      },
+      {
+        "files": "*.tsx",
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ],
+    "ignore": ["node_modules/**","package.json","package-logck.json"]
+
+  }
