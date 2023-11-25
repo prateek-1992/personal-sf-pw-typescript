@@ -34,9 +34,16 @@ jobs:
           else
             npm run test:whole
           fi
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+        # Upload the artifact
+        post-actions:
+          - name: Upload artifact
+            uses: actions/upload-artifact@v2
+            with:
+              name: playwright-report
+              path: playwright-report/
+
+          - name: Publish Artifacts
+            uses: peaceiris/actions-gh-pages@v3
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: playwright-report
