@@ -34,16 +34,16 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'setup',
-    //   testMatch:"setup-tests/*.spec.ts",
-    //   use: { ...devices['Desktop Chrome'],headless:true,video:"on" },
-    // },
+    {
+      name: 'setup',
+      testMatch: 'setup-tests/*.spec.ts',
+      use: { ...devices['Desktop Chrome'], headless: true, video: 'on' },
+    },
     {
       name: 'sales-account-tests',
       testMatch: 'sales-tests/*.spec.ts',
       use: { ...devices['Desktop Chrome'], headless: true, video: 'on' },
-      // dependencies:['setup']
+      dependencies: ['setup'],
     },
 
     // {
