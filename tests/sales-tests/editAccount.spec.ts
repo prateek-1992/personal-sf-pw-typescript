@@ -11,17 +11,17 @@ test.describe(`SalesForce ${FeatureTags.EDIT_ACCOUNT}`, async () => {
   let accountNameToAdd: string;
   let salesAccountHelper: SalesAppAccountHelper;
 
-  test.beforeEach('Adding new account to use in edit account flow', async ({ loggedInPage }) => {
+  test.beforeEach('Adding new account to use in edit account flow', async ({ page }) => {
     accountNameToAdd = faker.person.fullName();
     console.log(`Adding account : ${accountNameToAdd} for edit flow`);
-    salesAccountHelper = new SalesAppAccountHelper(loggedInPage);
+    salesAccountHelper = new SalesAppAccountHelper(page);
     await salesAccountHelper.addNewAccount(false, accountNameToAdd);
   });
 
   test(`verify admin is able to edit the account and able to view updated record : ${TestPriorityTags.P1}`, async ({
-    loggedInPage,
+    page,
   }) => {
-    const homepage = new SetupHomePage(loggedInPage);
+    const homepage = new SetupHomePage(page);
     await homepage.load();
     await homepage.verifyIfPageHasLoaded();
     const appLauncher = await homepage.navBar.clickOnAppLauncher();

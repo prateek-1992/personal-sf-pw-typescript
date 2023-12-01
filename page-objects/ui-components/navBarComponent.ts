@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import test, { Locator, Page } from '@playwright/test';
 import { BaseComponent } from '../basePage';
 import { AccountHomePage } from '../accountHomePage';
 import { TabNameConstants } from '../../constants/tabNameConstants';
@@ -19,12 +19,16 @@ export class NavBarComponent extends BaseComponent {
   }
 
   async clickOnAppLauncher() {
-    await this.clickOn(this.appLauncher);
+    await test.step(`Clicking on app launcher`, async () => {
+      await this.clickOn(this.appLauncher);
+    });
     return new AppLauncher(this.page);
   }
 
   async switchToTabWithName(tabName: TabNameConstants) {
-    await this.tabLocator.filter({ hasText: tabName }).click();
+    await test.step(`Switching to tab : ${tabName}`, async () => {
+      await this.tabLocator.filter({ hasText: tabName }).click();
+    });
     if (tabName === TabNameConstants.ACCOUNT_TAB) {
       return new AccountHomePage(this.page);
     } else {

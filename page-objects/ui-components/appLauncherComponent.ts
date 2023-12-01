@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import test, { Locator, Page } from '@playwright/test';
 import { BaseComponent } from '../basePage';
 import { AppNameConstants } from '../../constants/appNameConstants';
 import { SalesHomePage } from '../salesHomePage';
@@ -22,8 +22,9 @@ export class AppLauncher extends BaseComponent {
   }
 
   async clickOnViewAll() {
-    await this.clickOn(this.viewAllButtonInAppLauncher);
-    await this.isExpandedAppLauncherVisible();
+    await test.step(`Clicking on view all button`, async () => {
+      await this.clickOn(this.viewAllButtonInAppLauncher);
+    });
   }
 
   async isExpandedAppLauncherVisible() {
@@ -31,10 +32,12 @@ export class AppLauncher extends BaseComponent {
   }
 
   async openAppTileFromExpandedLauncher(appName: AppNameConstants) {
-    const appTileLocator = this.appTilesInExpandedAppLauncher.filter({
-      has: this.page.getByText(appName, { exact: true }),
+    await test.step(`Open app tile : ${appName} from the expanded launcher`, async () => {
+      const appTileLocator = this.appTilesInExpandedAppLauncher.filter({
+        has: this.page.getByText(appName, { exact: true }),
+      });
+      await this.clickOn(appTileLocator);
     });
-    await this.clickOn(appTileLocator);
     return this.getPageObjectForApp(appName);
   }
 

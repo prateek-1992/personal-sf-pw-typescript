@@ -12,14 +12,16 @@ test.describe(`SalesForce ${FeatureTags.CREATE_ACCOUNT}`, async () => {
     accountNameToAdd = faker.person.firstName();
     console.log(`INFO: Running create account flow to add user with name  : ${accountNameToAdd}`);
   });
+
   test(`verify admin is able to add new account on salesforce account tab : ${TestPriorityTags.PO}`, async ({
-    loggedInPage,
+    page,
   }) => {
-    const homepage = new SetupHomePage(loggedInPage);
+    const homepage = new SetupHomePage(page);
     await homepage.load();
     await homepage.verifyIfPageHasLoaded();
     const appLauncher = await homepage.navBar.clickOnAppLauncher();
     await appLauncher.clickOnViewAll();
+    // await loggedInPage.pause();
     const salesHomePage = await appLauncher.openAppTileFromExpandedLauncher(
       AppNameConstants.SALES_APP,
     );

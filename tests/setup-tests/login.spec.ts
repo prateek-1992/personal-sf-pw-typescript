@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
 import { LoginPage } from '../../page-objects/loginPage';
 import { AppConstants } from '../../constants/appConstants';
 import { FrameWorkUtil } from '../../utils/frameworkUtil';

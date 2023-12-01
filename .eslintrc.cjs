@@ -14,6 +14,7 @@ module.exports = {
         "playwright/no-useless-not":"error",
         "playwright/missing-playwright-await":"error",
         "playwright/no-focused-test":"warn",
-        "@typescript-eslint/no-duplicate-enum-values":"warn"
+        "@typescript-eslint/no-duplicate-enum-values":"off",
+        "playwright/expect-expect":"off"
     }
   };

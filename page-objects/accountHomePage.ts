@@ -52,26 +52,34 @@ export class AccountHomePage extends BaseComponent implements IPageActions {
   }
 
   async clickOnImportButton() {
-    await this.clickOn(this.importButton);
+    await test.step(`Clicking on import button`, async () => {
+      await this.clickOn(this.importButton);
+    });
   }
 
-  async openRecordForEditing(accountNameToAdd: string) {
-    const userRecord = this.page.locator('tr').filter({ hasText: accountNameToAdd });
-    const utilityDropdown = userRecord.locator("span[class$='slds-icon-utility-down']");
-    await expect(utilityDropdown).toBeVisible();
-    await utilityDropdown.click({ timeout: 15000 });
-    await this.editButtonOnMenuOptions.click();
+  async openRecordForEditing(accountNameToEdit: string) {
+    await test.step(`Opening record with name: ${accountNameToEdit} for editing`, async () => {
+      const userRecord = this.page.locator('tr').filter({ hasText: accountNameToEdit });
+      const utilityDropdown = userRecord.locator("span[class$='slds-icon-utility-down']");
+      await expect(utilityDropdown).toBeVisible();
+      await utilityDropdown.click({ timeout: 15000 });
+      await this.editButtonOnMenuOptions.click();
+    });
+
     return new NewAccountFormPage(this.page);
   }
 
   async deleteTheRecord(accountNameToDelete: string) {
-    const userRecord = this.page.locator('tr').filter({ hasText: accountNameToDelete });
-    const utilityDropdown = userRecord.locator("span[class$='slds-icon-utility-down']");
-    await expect(utilityDropdown).toBeVisible();
-    await utilityDropdown.click({ timeout: 15000 });
-    await this.deleteButtonOnMenuOptions.click();
-    await this.confirmDeleteButton.click();
+    await test.step(`Attempting to delete record by name: ${accountNameToDelete}`, async () => {
+      const userRecord = this.page.locator('tr').filter({ hasText: accountNameToDelete });
+      const utilityDropdown = userRecord.locator("span[class$='slds-icon-utility-down']");
+      await expect(utilityDropdown).toBeVisible();
+      await utilityDropdown.click({ timeout: 15000 });
+      await this.deleteButtonOnMenuOptions.click();
+      await this.confirmDeleteButton.click();
+    });
   }
+
   async verifyRecordExistsInListOfRecords(userName: string) {
     await expect(
       this.page.locator("a[data-refid='recordId']").filter({ hasText: userName }).nth(0),
