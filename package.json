@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "e2e:stage:p0": "ENVIRONMENT=stage npx playwright test --grep=@P0",
+    "e2e:qa:p0": "ENVIRONMENT=stage npx playwright test --grep=@P0",
+    "e2e:stage:p1": "ENVIRONMENT=qa npx playwright test --grep=@P1",
     "e2e:qa:p1": "ENVIRONMENT=qa npx playwright test --grep=@P1",
     "e2e:stage":"ENVIRONMENT=stage npx playwright test",
     "e2e:qa":"ENVIRONMENT=qa npx playwright test"
