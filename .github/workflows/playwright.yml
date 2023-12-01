@@ -17,9 +17,9 @@ on: # when to run
         required: true
         default: '@P0'
         options:
-          - '@P0'
-          - '@P1'
-          - '@All'
+          - 'p0'
+          - 'p1'
+          - 'all'
 jobs:
   test:
     timeout-minutes: 60 # this tells the maximum time allowed for a job to take and get completed
