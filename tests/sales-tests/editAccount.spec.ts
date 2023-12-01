@@ -1,5 +1,3 @@
-import { expect } from '@playwright/test';
-import { NewAccountFormPage } from '../../page-objects/newAccountFormPage';
 import { faker } from '@faker-js/faker';
 import { loggedInTests as test } from '../fixtures';
 import { FeatureTags } from '../../constants/featureTags';

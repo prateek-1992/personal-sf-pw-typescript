@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:demo":"npx playwright test --grep=@Demo",
-    "test:whole":"npx playwright test"
+    "e2e:stage:p0": "ENVIRONMENT=stage npx playwright test --grep=@P0",
+    "e2e:qa:p1": "ENVIRONMENT=qa npx playwright test --grep=@P1"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "@types/node": "^20.9.1",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
+    "csv-parser": "^3.0.0",
     "dotenv": "^16.3.1",
     "eslint": "^8.54.0",
     "eslint-plugin-playwright": "^0.18.0",

@@ -1,16 +1,25 @@
 name: Manual trigger workflow
 # workflow dispatch is marking this job to be executed only when manually triggered
-on:
-  workflow_dispatch:
-    inputs:
+on: # when to run
+  workflow_dispatch: # when someonly manually triggers this action
+    inputs: # what parameter i should ask from user before running the job
       environment:
+        type: choice
         description: 'Environment to run suite on'
         required: true
         default: 'qa'
+        options:
+          - 'qa'
+          - 'stage'
       priority:
-        description: 'Priority level'
+        type: choice
+        description: 'Select test to run by priority'
         required: true
         default: '@P0'
+        options:
+          - '@P0'
+          - '@P1'
+          - '@All'
 jobs:
   test:
     timeout-minutes: 60 # this tells the maximum time allowed for a job to take and get completed
@@ -29,21 +38,16 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: |
-          if [ "${PRIORITY}" = "@P0" ]; then
-            npm run test:demo
+          echo "DEBUG:Executing e2e to run on env : ${ENVIRONMENT} with priority ${PRIORITY}"
+          if [ "${PRIORITY}" = "@ALL" ]; then
+            npm run e2e:${ENVIRONMENT}
           else
-            npm run test:whole
+            npm run e2e:${ENVIRONMENT}:${PRIORITY}
           fi
-        # Upload the artifact
+          echo "Test case execution completed"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: playwright-report
           path: path/to/report # Adjust the path based on your project
-
-      - name: Publish Artifacts
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: playwright-report

@@ -12,7 +12,8 @@ module.exports = {
     },
     rules:{//playwright specific rules
         "playwright/no-useless-not":"error",
-        "playwright/missing-playwright-await":"warn",
-        "playwright/no-focused-test":"warn"
+        "playwright/missing-playwright-await":"error",
+        "playwright/no-focused-test":"warn",
+        "@typescript-eslint/no-duplicate-enum-values":"warn"
     }
   };

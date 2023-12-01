@@ -81,6 +81,6 @@ export class AccountHomePage extends BaseComponent implements IPageActions {
   async verifyRecordDoNotExistsInListOfRecords(userName: string) {
     await expect(
       this.page.locator("a[data-refid='recordId']").filter({ hasText: userName }).nth(0),
-    ).not.toBeVisible({ timeout: 15000 });
+    ).toBeHidden({ timeout: 15000 });
   }
 }
