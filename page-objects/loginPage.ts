@@ -1,9 +1,8 @@
 import { Page, test, Locator } from '@playwright/test';
-import { BaseComponent } from './basePage';
+import { BasePage } from './basePage';
+import { AppConstants } from '../constants/appConstants';
 
-export class LoginPage extends BaseComponent {
-  //static url
-  static pageUrl: string = 'https://login.salesforce.com/';
+export class LoginPage extends BasePage {
   //locators
   readonly userNameIpField: Locator;
   readonly passwordIpField: Locator;
@@ -28,7 +27,7 @@ export class LoginPage extends BaseComponent {
   }
 
   async load(): Promise<void> {
-    await this.loadUrl(LoginPage.pageUrl);
+    await this.loadUrl(AppConstants.LOGIN_PAGE_URL);
   }
 
   public async doLogin(userName: string, password: string) {

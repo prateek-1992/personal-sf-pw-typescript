@@ -1,10 +1,10 @@
 import { Locator, Page, expect } from '@playwright/test';
 import { AppConstants } from '../constants/appConstants';
-import { BaseComponent } from './basePage';
 import { NavBarComponent } from './ui-components/navBarComponent';
-import { IPageActions } from './IPageActions';
 
-export class SalesHomePage extends BaseComponent implements IPageActions {
+import { BasePage } from './basePage';
+
+export class SalesHomePage extends BasePage {
   async verifyIfPageHasLoaded(): Promise<void> {
     await expect(
       this.anchorLocator,

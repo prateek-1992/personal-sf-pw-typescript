@@ -1,9 +1,9 @@
 import { Locator, Page, expect } from '@playwright/test';
-import { BaseComponent } from './basePage';
-import { IPageActions } from './IPageActions';
-import { AppConstants } from '../constants/appConstants';
 
-export class NewAccountFormPage extends BaseComponent implements IPageActions {
+import { AppConstants } from '../constants/appConstants';
+import { BasePage } from './basePage';
+
+export class NewAccountFormPage extends BasePage {
   async verifyIfPageHasLoaded(): Promise<void> {
     await this.verifyPageHasNavigatedTo(AppConstants.NEW_ACCOUNT_FORM_PAGE, {
       assertionStatement: 'Verify if page has navigated to New Account form',

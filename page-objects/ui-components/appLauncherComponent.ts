@@ -1,5 +1,5 @@
 import test, { Locator, Page } from '@playwright/test';
-import { BaseComponent } from '../basePage';
+import { BaseComponent } from '../baseComponent';
 import { AppNameConstants } from '../../constants/appNameConstants';
 import { SalesHomePage } from '../salesHomePage';
 

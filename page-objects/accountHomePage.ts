@@ -1,10 +1,9 @@
 import { Locator, Page, expect, test } from '@playwright/test';
-import { BaseComponent } from './basePage';
-import { IPageActions } from './IPageActions';
 import { AppConstants } from '../constants/appConstants';
 import { NewAccountFormPage } from './newAccountFormPage';
+import { BasePage } from './basePage';
 
-export class AccountHomePage extends BaseComponent implements IPageActions {
+export class AccountHomePage extends BasePage {
   async load(): Promise<void> {
     await this.loadUrl(AppConstants.ACCOUNT_PAGE);
   }

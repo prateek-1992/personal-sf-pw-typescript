@@ -46,11 +46,7 @@ export interface IComponentActions {
    * const selector: string = your selector ;
    * await elementInteractor.fillIn(selector, "Lorem Ipsum", 5000);
    */
-  fillIn(
-    locateUsing: Locator | string,
-    textToEnter: string,
-    thresholdTimeout?: number,
-  ): Promise<void>;
+  fillIn(locateUsing: Locator | string, textToEnter: string): Promise<void>;
 
   /**
    * Checks if the specified locator is currently visible on the page.
@@ -85,4 +81,9 @@ export interface IComponentActions {
    * const locator: Locator = elementInteractor.getLocator(selector);
    */
   getLocator(selector: string): Locator;
+
+  verifyCountOfLocatorMatches(
+    locateUsing: Locator | string,
+    expNumberOfCount: number,
+  ): Promise<void>;
 }

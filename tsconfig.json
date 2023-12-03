@@ -12,6 +12,6 @@
         "*": ["node_modules/*"]
       }
     },
-    "include": ["tests/**/*.ts","reporters/*.ts","utils/*.ts"],
+    "include": ["tests/**/*.ts","reporters/*.ts","utils/*.ts","page-objects/**/*"],
     "exclude": ["node_modules", "dist"]
   }

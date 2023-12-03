@@ -4,4 +4,5 @@ export enum AppConstants {
   SALES_HOMEPAGE_URL = '/lightning/page/home',
   ACCOUNT_PAGE = '/lightning/o/Account/list?filterName=Recent',
   NEW_ACCOUNT_FORM_PAGE = '/lightning/o/Account/new',
+  LOGIN_PAGE_URL = 'https://login.salesforce.com/',
 }

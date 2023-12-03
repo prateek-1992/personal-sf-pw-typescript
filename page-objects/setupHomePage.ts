@@ -1,10 +1,9 @@
 import { Locator, Page } from '@playwright/test';
-import { BaseComponent } from './basePage';
 import { AppConstants } from '../constants/appConstants';
 import { NavBarComponent } from './ui-components/navBarComponent';
-import { IPageActions } from './IPageActions';
+import { BasePage } from './basePage';
 
-export class SetupHomePage extends BaseComponent implements IPageActions {
+export class SetupHomePage extends BasePage {
   async verifyIfPageHasLoaded(): Promise<void> {
     await this.isLocatorVisible(this.pageAnchorLocator, {
       thresholdTimeout: 15000,
